@@ -8,73 +8,50 @@ namespace BossAzConsole
 {
     internal class App
     {
-        static bool isWorker;
-
-        private static void getUserType()
-        {
-            bool loop;
-
-            do
-            {
-                Console.WriteLine("Worker(w) <=> Employer(e)");
-
-                ConsoleKey key = Console.ReadKey().Key;
-                Console.WriteLine();
-
-                loop = false;
-
-                if (key == ConsoleKey.W)
-                {
-                    isWorker = true;
-                }
-                else if (key == ConsoleKey.E)
-                {
-                    isWorker = false;
-                }
-                else
-                {
-                    loop = true;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid Key");
-                    Console.ResetColor();
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                }
-            } while (loop); ;
-        }
-
         public static void ShowLoginMenu()
         {
             Console.WriteLine("Enter email : ");
             string email = Console.ReadLine();
-            Console.WriteLine("Enter password : ");
             StringBuilder password = new StringBuilder();
+
 
             while (true)
             {
+                Console.WriteLine("Enter password : ");
+                for (int i = 0; i < password.Length; i++){
+                    Console.Write("*");
+                }
+
+
                 ConsoleKey key = Console.ReadKey().Key;
-                if(key != ConsoleKey.Enter)
+                if(key == ConsoleKey.Enter)
                 {
 
                 }
-                else if (key != ConsoleKey.Backspace)
+                else if (key == ConsoleKey.Backspace)
                 {
-
+                    if(password.Length > 0)
+                    {
+                        password.Remove(password.Length - 1, 1);
+                    }
                 }
                 else
                 {
                     password.Append(key.ToString());
                 }
+                Console.Clear();
             }
 
         }
 
-        
+        public static void ShowRegisterMenu()
+        {
+               
+        }
 
         public static void Start()
         {
             Console.Title = "Announcement App";
-            getUserType();
             
             ShowLoginMenu();
         }

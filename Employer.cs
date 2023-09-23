@@ -15,7 +15,6 @@ namespace BossAzConsole
     {
         public Vacancy[]? Vacancies { get; set; }
 
-
         public Employer(string? name, string? surname, string? city, string? number, int age, string? email, Vacancy[]? vacancies) : base(name, surname, city, number, age, email)
         {
             Vacancies = vacancies;

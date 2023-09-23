@@ -10,7 +10,7 @@ namespace BossAzConsole
     internal class Validation
     {
         private static readonly string _emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-        private static readonly string _passRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        private static readonly string _passRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
 
         public static bool CheckEmail(string email)
         {
@@ -21,6 +21,8 @@ namespace BossAzConsole
         {
             return Regex.IsMatch(password, _passRegex);
         }
+
+
 
     }
 }

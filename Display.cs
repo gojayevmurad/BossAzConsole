@@ -80,5 +80,16 @@ namespace BossAzConsole
             }
         }
 
+        public static string? GetUserData(string label)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(label);
+            Console.ResetColor();
+            string data = Console.ReadLine();
+            
+            return data;
+        }
+
     }
 }

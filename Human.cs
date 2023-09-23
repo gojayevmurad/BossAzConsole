@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BossAzConsole
 {
-    abstract internal class Human
+
+    abstract public class Human
     {
         public string? Name { get; set; }
         public string? Surname { get; set; }
@@ -15,6 +16,7 @@ namespace BossAzConsole
         public string? Number { get; set; }
         public int Age { get; set; }
         public string? Email { get; set; }
+
         public int Id { get; } = ++_id;
 
         private static int _id = 0;
